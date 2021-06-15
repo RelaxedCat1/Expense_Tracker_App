@@ -2,7 +2,6 @@ import '../models/transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-
 class TransactionItem extends StatelessWidget {
   const TransactionItem({
     Key key,
@@ -27,29 +26,27 @@ class TransactionItem extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(5.0),
             child: FittedBox(
-                child: Text(
-                    '₱${transaction.amount.toStringAsFixed(2)}')),
+                child: Text('₱${transaction.amount.toStringAsFixed(2)}')),
           ),
         ),
         title: Text('${transaction.title}',
             style: Theme.of(context).textTheme.headline6),
-        subtitle:
-            Text(DateFormat.yMMMd().format(transaction.date)),
+        subtitle: Text(DateFormat.yMMMd().format(transaction.date)),
         trailing: MediaQuery.of(context).size.width >= 360
-            ? FlatButton.icon(
+            ? TextButton.icon(
                 onPressed: () => deleteTx(transaction.id),
                 icon: const Icon(Icons.delete),
-                label: const Text('Delete'),
-                textColor: Theme.of(context).errorColor,
+                label: Text(
+                  'Delete',
+                  style: TextStyle(color: Theme.of(context).errorColor),
+                ),
               )
-
-            :  IconButton(
+            : IconButton(
                 icon: const Icon(Icons.delete),
                 color: Theme.of(context).errorColor,
                 onPressed: () => deleteTx(transaction.id),
               ),
       ),
-    
     );
-     }
+  }
 }

@@ -155,8 +155,9 @@ class _MyHomePageState extends State<MyHomePage> {
       txListWidget
     ];
   }
-Widget _buildAppBar(){
-  return Platform.isIOS
+
+  Widget _buildAppBar() {
+    return Platform.isIOS
         ? CupertinoNavigationBar(
             middle: Text('Ed\'s Expense Tracker'),
             trailing: Row(
@@ -180,7 +181,8 @@ Widget _buildAppBar(){
               ),
             ],
           );
-}
+  }
+
   bool _showChart = false;
   @override
   Widget build(BuildContext context) {
@@ -208,7 +210,6 @@ Widget _buildAppBar(){
                 appBar,
                 txListWidget,
               ),
-      
             if (!isLandscape)
               ..._buildPortraitContent(
                 mediaQuery,

@@ -1,4 +1,3 @@
-
 import 'package:expensetracker_app/widgets/adaptive_flat_button.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -98,11 +97,14 @@ class _NewTransactionState extends State<NewTransaction> {
                   ],
                 ),
               ),
-              RaisedButton(
-                  onPressed: _submitData,
-                  child: Text('Add Transaction'),
-                  color: Theme.of(context).primaryColor,
-                  textColor: Theme.of(context).textTheme.button.color)
+              ElevatedButton(
+                onPressed: _submitData,
+                child: Text('Add Transaction'),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(
+                      Theme.of(context).primaryColor),
+                ),
+              ),
             ],
           ),
         ),
